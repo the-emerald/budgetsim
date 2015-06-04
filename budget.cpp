@@ -73,6 +73,7 @@ int main()
 			cout << "5. Introduction to school ($5000). Chance of increasing or decreasing population.\n";
 			cout << "6. Improve sound systems ($20000). Will lower reputation in exchange for population.\n";
 			cout << "7. Automagic water fountains ($10000). Make the students happier?";
+			cout << "8. Parasols in cafeteria ($15000). Will lower population in exchange for reputation";
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -156,6 +157,12 @@ int main()
 					cout << "Thank god that it didn't flood or break. They just don't work.\n";
 				}
 				cout << "Oh well, back to manual water fountains it is.\n";
+				break;
+			case 8:
+				schoolBudget -= 15000;
+				cout << "These new parasols look great! Everyone loves you for it. However some students have left because they are allergic to yellow umbrellas.\n";
+				schoolPop -= 5;
+				reputation += 0.15;
 				break;
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
