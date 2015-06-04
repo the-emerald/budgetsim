@@ -35,6 +35,9 @@ int main()
 	if(name=="Kenny") {
 		cout << "ey b0ss\n";
 	}
+	if(name=="boss") {
+		cout << "can i habe a pizza pls?";
+	}
 	//cout << "It is new year. You have new amount of money!\n";
 	//cout << "You have: " << schoolBudget << " HKD. How lucky.\n";
 	
@@ -69,7 +72,7 @@ int main()
 			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n";
 			cout << "5. Introduction to school ($5000). Chance of increasing or decreasing population.\n";
 			cout << "6. Improve sound systems ($20000). Will lower reputation in exchange for population.\n";
-			cout << "7. Automagic water fountains ($10000).";
+			cout << "7. Automagic water fountains ($10000). Make the students happier?";
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -157,7 +160,7 @@ int main()
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
 				schoolBudget -= 1000;
-				//break; <<-- don't
+				//break; <<-- don't do it
 			
 		}
 		
