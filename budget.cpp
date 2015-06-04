@@ -67,8 +67,9 @@ int main()
 			cout << "2. Put flower pots for more beauty ($15000)\n";
 			cout << "3. Dress up day ($1000). Chance of increasing or decreasing reputation.\n";
 			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n";
-			cout << "5. Introduction to school ($5000). Chance of increasing or decreasing reputation.\n";
+			cout << "5. Introduction to school ($5000). Chance of increasing or decreasing population.\n";
 			cout << "6. Improve sound systems ($20000). Will lower reputation in exchange for population.\n";
+			cout << "7. Automagic water fountains ($10000).";
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -125,6 +126,7 @@ int main()
 				}
 				break;
 			case 6:
+				schoolBudget -= 20000;
 				cout << "You install new sound systems for the school.";
 				cout << "How tragic: During testing of the sound systems, some students have their eardrums severely injured.\n";
 				cout << "Please pay some respects: ";
@@ -138,10 +140,20 @@ int main()
 					schoolPop += 5;
 				}
 				break;
-				//stop;
-				//hammertime;
-			//case CLOSED:
-				// u r in jail
+			case 7:
+				schoolBudget -= 10000;
+				cout << "You install new automatic water fountains.\n";
+				cout << "However, none of them work.";
+				rng = rand() % 1 + 2;
+				if(rng==2) {
+					cout << "It flooded the school! You have to pay lots of money to fix it now.\n";
+					schoolBudget -= 20000;
+				}
+				else {
+					cout << "Thank god that it didn't flood or break. They just don't work.\n";
+				}
+				cout << "Oh well, back to manual water fountains it is.\n";
+				break;
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
 				schoolBudget -= 1000;
