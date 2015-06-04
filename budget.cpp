@@ -42,6 +42,15 @@ string promptUsername()
 	return name;
 }
 
+void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
+{
+	cout << "Last month has brought you some extra budget.\n";
+	int rng = rand() % 20 + 30; //redo rng
+	int schoolBudgetAdd = reputation*schoolPop*rng;
+	cout << schoolBudgetAdd << " has been added to your account.\n";
+	schoolBudget += schoolBudgetAdd;
+}
+
 int main()
 {
 	bool fail;
@@ -172,11 +181,7 @@ int main()
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
 		if(month!=1) {	//schoolBudgetAdd
-			cout << "Last month has brought you some extra budget.\n";
-			rng = rand() % 20 + 30; //redo rng
-			schoolBudgetAdd = reputation*schoolPop*rng;
-			cout << schoolBudgetAdd << " has been added to your account.\n";
-			schoolBudget += schoolBudgetAdd;
+			addRandomAmountToBudget(schoolBudget, reputation, schoolPop);
 		}
 		if(reputation<=0) {
 			cout << "The school is very disappointed with you. You have been dismissed. There will be no score.";
