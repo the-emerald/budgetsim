@@ -102,7 +102,6 @@ int main()
 				cout << "You've lost 10 population but you gained some money!\n";
 				schoolPop -= 100;
 				schoolBudget += 10000;
-				break;
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. [default]";
 				schoolBudget -= 1000;
