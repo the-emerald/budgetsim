@@ -60,6 +60,7 @@ int main()
 			cout << "2. Put flower pots for more beauty ($15000)\n";
 			cout << "3. Dress up day ($1000). Chance of increasing or decreasing reputation.\n";
 			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n";
+			cout << "5. Introduction to school ($5000). Chance of increasing or decreasing reputation.\n";
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -99,11 +100,26 @@ int main()
 				break;
 			case 4:
 				cout << "You ask the students to make food for sale.\n";
-				cout << "You've lost 10 population but you gained some money!\n";
-				schoolPop -= 100;
+				cout << "You've lost 5 population but you gained some money!\n";
+				schoolPop -= 5;
 				schoolBudget += 10000;
+				break;
+			case 5:
+				cout << "You introduce more people to the school.";
+				schoolBudget -= 5000;
+				cout << "The event went ";
+				rng = rand() % 4;
+				if(rng>=2) {
+					rng = 10;
+					cout << "alright. You gained 10 students! \n";
+				}
+				else {
+					rng = -10;
+					cout << "terribly wrong. Students are leaving! You've lost 10 students.\n";
+				}
+				break;
 			default:
-				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. [default]";
+				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
 				schoolBudget -= 1000;
 				//break; <<-- don't
 			
@@ -114,6 +130,7 @@ int main()
 	
 	//cout << "Foobar";
 	score = sqrt(schoolBudget);
+	cout << "\n----------\n";
 	cout << "It's the end of a year. You've done an excellent job. Your score is...\n";
 	if(schoolBudget>=0) {
 		cout << score;
