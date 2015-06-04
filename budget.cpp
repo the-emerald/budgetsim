@@ -24,8 +24,6 @@ string promptUsername()
 	if(name=="boss") {
 		cout << "can i habe a pizza pls?";
 	}
-	//cout << "It is new year. You have new amount of money!\n";
-	//cout << "You have: " << schoolBudget << " HKD. How lucky.\n";
 
 	cout << "...\n";
 
@@ -68,8 +66,6 @@ int main()
 			cout << "The school is very disappointed with you. You have been dismissed. There will be no score.";
 			fail = true;
 			break;
-			//exit;
-			//return 0;	 Who cares? Whatever it is, I'm not going to make a function. (fixed)
 		}
 		cout << "Welcome. What would you like to work on? \n";
 		cout << "\n";
@@ -145,7 +141,6 @@ int main()
 				cout << "Please pay some respects: ";
 				cin >> sixChoice;
 				if(sixChoice == "F","f") {
-					//schoolBudget += 5000
 					reputation -= 0.1;
 				}
 				else {
@@ -176,14 +171,10 @@ int main()
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
 				schoolBudget -= 1000;
-				//break; <<-- don't do it
-
 		}
 
 	}
 
-
-	//cout << "Foobar";
 	if(fail==true) {
 		score = sqrt(schoolBudget)*0.4;
 	}
@@ -201,12 +192,6 @@ int main()
 
 	cout << "\nExit the game by entering anything. > ";
 	cin >> score;
-
-
-	//schoolBudget = 0;
-	//cout << "School budget is: " << schoolBudget << " dollars.";
-	//return 0;
-	//Haha
 
 	return 0;
 }
