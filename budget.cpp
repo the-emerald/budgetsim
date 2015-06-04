@@ -62,7 +62,7 @@ int main()
 			cout << "1. Improve the toilets ($20000)\n";
 			cout << "2. Put flower pots for more beauty ($15000)\n";
 			cout << "3. Dress up day ($1000). Chance of increasing or decreasing reputation.\n";
-			cout << "4. Dumpling sale ($0). Decreases reputation "
+			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n"
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -81,10 +81,12 @@ int main()
 			case 1:	//holy shit a colon. i feel like using python again
 				cout << "You've improved the toilets.\n";
 				schoolBudget -= 20000;
+				reputation += 0.4;
 				break;
 			case 2:
 				cout << "You put flower pots around the school.\n";
 				schoolBudget -= 15000;
+				reputation += 0.1;
 				break;
 			case 3:
 				cout << "You put up a fabulous dress up day.\n";
@@ -103,6 +105,11 @@ int main()
 				}
 				reputation += rng;
 				break;
+			case 4:
+				cout << "You ask the students to make food for sale.\n";
+				cout << "You've lost 10 population but you gained some money!\n";
+				population -= 100;
+				schoolBudget += 10000;
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. [default]";
 				schoolBudget -= 1000;
