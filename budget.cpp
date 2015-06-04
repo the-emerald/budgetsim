@@ -54,16 +54,13 @@ void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 int main()
 {
 	bool fail;
-	bool developerMode;
 	int schoolBudget; // Currency
 	int schoolBudgetAdd; // Currency to add every month where month != 1
 	double reputation = 1.0; // Hidden reputation, can use sB to check
 	int schoolPop = 100; // Always known, school population
 	int month = 0; // Month
-	int choice; // Choice
-	int rng; //RNGesus
+	int selectedChoiceNumber;
 	string name;
-	string sixChoice; //choice for option 6
 	double score;
 	vector<ActionChoice> actionChoices;
 
@@ -94,7 +91,7 @@ int main()
 			"Dress up day ($1000). Chance of increasing or decreasing reputation.",
 			"You put up a fabulous dress up day.",
 			[&]() {
-				rng = rand() % 4;
+				int rng = rand() % 4;
 				schoolBudget -= 1000;
 				cout << "That went ";
 				if(rng>=2) {
@@ -123,7 +120,7 @@ int main()
 			[&]() {
 				schoolBudget -= 5000;
 				cout << "The event went ";
-				rng = rand() % 4;
+				int rng = rand() % 4;
 				if(rng>=2) {
 					rng = 10;
 					cout << "alright. You gained 10 students! \n";
@@ -138,10 +135,11 @@ int main()
 			"Improve sound systems ($20000). Will lower reputation in exchange for population.",
 			"You install new sound systems for the school.",
 			[&]() {
+				string respects;
 				cout << "How tragic: During testing of the sound systems, some students have their eardrums severely injured.\n";
 				cout << "Please pay some respects: ";
-				cin >> sixChoice;
-				if(sixChoice == "F","f") {
+				cin >> respects;
+				if(respects == "F","f") {
 					reputation -= 0.1;
 				}
 				else {
@@ -155,7 +153,7 @@ int main()
 			"You install new automatic water fountains.",
 			[&]() {
 				cout << "However, none of them work.\n";
-				rng = rand() % 1 + 2;
+				int rng = rand() % 1 + 2;
 				if(rng==2) {
 					cout << "It flooded the school! You have to pay lots of money to fix it now.\n";
 					schoolBudget -= 20000;
@@ -201,7 +199,7 @@ int main()
 
 		cout << "What would you like to do this month? ";
 
-		while( ! ( cin >> choice ) ) {
+		while( ! ( cin >> selectedChoiceNumber ) ) {
 			cout << "Invalid input. Try again: ";
 			cin.clear();
 			cin.ignore( numeric_limits<int>::max(), '\n' );
@@ -209,11 +207,11 @@ int main()
 
 		cout << "Alright... As you wish.\n\n";
 
-		choice -= 1;
+		selectedChoiceNumber -= 1;
 
-		if (choice >= 0 && choice < actionChoices.size()) {
-			cout << actionChoices[choice].resultMessage << "\n";
-			actionChoices[choice].action();
+		if (selectedChoiceNumber >= 0 && selectedChoiceNumber < actionChoices.size()) {
+			cout << actionChoices[selectedChoiceNumber].resultMessage << "\n";
+			actionChoices[selectedChoiceNumber].action();
 		} else {
 			cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)\n";
 			schoolBudget -= 1000;
