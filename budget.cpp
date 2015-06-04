@@ -35,9 +35,6 @@ int main()
 	if(name=="Kenny") {
 		cout << "ey b0ss\n";
 	}
-	if(name=="Hitler") {
-		cout << "mein fuhrer\n";
-	}
 	//cout << "It is new year. You have new amount of money!\n";
 	//cout << "You have: " << schoolBudget << " HKD. How lucky.\n";
 	
@@ -62,7 +59,7 @@ int main()
 			cout << "1. Improve the toilets ($20000)\n";
 			cout << "2. Put flower pots for more beauty ($15000)\n";
 			cout << "3. Dress up day ($1000). Chance of increasing or decreasing reputation.\n";
-			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n"
+			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n";
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -73,12 +70,7 @@ int main()
 		
 		cout << "Alright... As you wish.\n\n";
 		switch(choice) {
-			case 0:
-				// Lesson Zero
-				cout << "Administration didn't understand what you mean. They spent the whole month on seminars.";
-				schoolBudget -=1000;
-				break;
-			case 1:	//holy shit a colon. i feel like using python again
+			case 1:	// Is this python?
 				cout << "You've improved the toilets.\n";
 				schoolBudget -= 20000;
 				reputation += 0.4;
@@ -91,29 +83,29 @@ int main()
 			case 3:
 				cout << "You put up a fabulous dress up day.\n";
 				schoolBudget -= 1000;
-				rng = rand() % 4; // Not sure if this will work (edit: no it won't dumbass)
+				rng = rand() % 4; // There we go fixed it
 				cout << "That went ";
 				if(rng>=2) {
 					rng = 1;
 					cout << "alright. You gained " << rng << " reputation.\n\n";
-					reputation += rng
+					reputation += rng;
 				}
 				else {
 					rng = -0.5;
 					cout << "Not very well. You lost 0.5 reputation.\n\n";
-					reputation -= 0.5
+					reputation -= 0.5;
 				}
 				reputation += rng;
 				break;
 			case 4:
 				cout << "You ask the students to make food for sale.\n";
 				cout << "You've lost 10 population but you gained some money!\n";
-				population -= 100;
+				schoolPop -= 100;
 				schoolBudget += 10000;
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. [default]";
 				schoolBudget -= 1000;
-				//break; <<--- fuck you
+				//break; <<-- don't
 			
 		}
 		
