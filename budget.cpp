@@ -23,11 +23,11 @@ int main()
 	string name;
 	string sixChoice; //choice for option 6
 	double score;
-	
+
 	srand(time(0)*time(0)*time(0)*time(0)); //init rand
-	
+
 	schoolBudget = rand() % 100000 + 50000;
-	
+
 	cout << "Welcome to School Budget Simulator 2015. Version " << version << "\n";
 	cout << "What's your name? ";
 	cin >> name;
@@ -40,12 +40,12 @@ int main()
 	}
 	//cout << "It is new year. You have new amount of money!\n";
 	//cout << "You have: " << schoolBudget << " HKD. How lucky.\n";
-	
+
 	cout << "...\n";
-	
-	
+
+
 	for(month = 1; month <= 12; month++) {
-		
+
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
 		if(month!=1) {	//schoolBudgetAdd
@@ -74,14 +74,14 @@ int main()
 			cout << "6. Improve sound systems ($20000). Will lower reputation in exchange for population.\n";
 			cout << "7. Automagic water fountains ($10000). Make the students happier?";
 			cout << "8. Parasols in cafeteria ($15000). Will lower population in exchange for reputation";
-			
+
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
 			cout << "Invalid input. Try again: ";
 			cin.clear();
 			cin.ignore( numeric_limits<int>::max(), '\n' );
 		}
-		
+
 		cout << "Alright... As you wish.\n\n";
 		switch(choice) {
 			case 1:	// Is this python?
@@ -168,12 +168,12 @@ int main()
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
 				schoolBudget -= 1000;
 				//break; <<-- don't do it
-			
+
 		}
-		
+
 	}
-	
-	
+
+
 	//cout << "Foobar";
 	if(fail==true) {
 		score = sqrt(schoolBudget)*0.4;
@@ -189,15 +189,15 @@ int main()
 	else {
 		cout <<" so bad, it's negative. Ask yourself, did you even try?";	//gg no re
 	}
-	
+
 	cout << "\nExit the game by entering anything. > ";
 	cin >> score;
-	
-	
+
+
 	//schoolBudget = 0;
 	//cout << "School budget is: " << schoolBudget << " dollars.";
 	//return 0;
 	//Haha
-	
+
 	return 0;
 }
