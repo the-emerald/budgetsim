@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-	
+	bool fail;
 	bool developerMode;
 	float version = 0.3;
 	int schoolBudget; // Currency
@@ -54,8 +54,10 @@ int main()
 		}
 		if(reputation<=0) {
 			cout << "The school is very disappointed with you. You have been dismissed. There will be no score.";
-			exit;
-			return 0;	// Who cares? Whatever it is, I'm not going to make a function.
+			fail = true;
+			break;
+			//exit;
+			//return 0;	 Who cares? Whatever it is, I'm not going to make a function. (fixed)
 		}
 		cout << "Welcome. What would you like to work on? \n";
 		cout << "\n";
@@ -151,9 +153,14 @@ int main()
 	
 	
 	//cout << "Foobar";
-	score = sqrt(schoolBudget);
+	if(fail==true) {
+		score = sqrt(schoolBudget)*0.4;
+	}
+	else {
+		score = sqrt(schoolBudget);
+	}
 	cout << "\n----------\n";
-	cout << "It's the end of a year. You've done an excellent job. Your score is...\n";
+	cout << "It's the end of your term. Your score is...\n";
 	if(schoolBudget>=0) {
 		cout << score;
 	}
