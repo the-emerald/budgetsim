@@ -21,7 +21,7 @@ int main()
 	int choice; // Choice
 	int rng; //RNGesus
 	string name;
-	
+	string sixChoice; //choice for option 6
 	double score;
 	
 	srand(time(0)*time(0)*time(0)*time(0)); //init rand
@@ -52,6 +52,11 @@ int main()
 			cout << schoolBudgetAdd << " has been added to your account.\n";
 			schoolBudget += schoolBudgetAdd;
 		}
+		if(reputation<=0) {
+			cout << "The school is very disappointed with you. You have been dismissed. There will be no score.";
+			exit;
+			return 0;	// Who cares? Whatever it is, I'm not going to make a function.
+		}
 		cout << "Welcome. What would you like to work on? \n";
 		cout << "\n";
 		cout << "Right now you have: " << schoolBudget << " dollars.\n";
@@ -61,6 +66,7 @@ int main()
 			cout << "3. Dress up day ($1000). Chance of increasing or decreasing reputation.\n";
 			cout << "4. Food sale (+$10000). Will lower population in exchange for money boost.\n";
 			cout << "5. Introduction to school ($5000). Chance of increasing or decreasing reputation.\n";
+			cout << "6. Improve sound systems ($20000). Will lower reputation in exchange for population.\n";
 			
 		cout << "What would you like to do this month? ";
 		while( ! ( cin >> choice ) ) {
@@ -87,14 +93,12 @@ int main()
 				rng = rand() % 4; // There we go fixed it
 				cout << "That went ";
 				if(rng>=2) {
-					rng = 1;
-					cout << "alright. You gained " << rng << " reputation.\n\n";
-					reputation += rng;
+					cout << "alright. You gained 0.1 reputation.\n\n";
+					reputation += 0.1;
 				}
 				else {
-					rng = -0.5;
-					cout << "Not very well. You lost 0.5 reputation.\n\n";
-					reputation -= 0.5;
+					cout << "Not very well. You lost 0.1 reputation.\n\n";
+					reputation -= 0.1;
 				}
 				reputation += rng;
 				break;
@@ -118,6 +122,24 @@ int main()
 					cout << "terribly wrong. Students are leaving! You've lost 10 students.\n";
 				}
 				break;
+			case 6:
+				cout << "You install new sound systems for the school.";
+				cout << "How tragic: During testing of the sound systems, some students have their eardrums severely injured.\n";
+				cout << "Please pay some respects: ";
+				cin >> sixChoice;
+				if(sixChoice == "F","f") {
+					//schoolBudget += 5000
+					reputation -= 0.1;
+				}
+				else {
+					reputation -= 0.2;
+					schoolPop += 5;
+				}
+				break;
+				//stop;
+				//hammertime;
+			//case CLOSED:
+				// u r in jail
 			default:
 				cout << "Administration didn't understand what you mean. They spent the whole month on seminars. (-$1000)";
 				schoolBudget -= 1000;
