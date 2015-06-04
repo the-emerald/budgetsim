@@ -1,6 +1,8 @@
 // School budget
 // By suclearnub
 
+#define GAME_VERSION "0.3.6"
+
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
@@ -12,7 +14,6 @@ int main()
 {
 	bool fail;
 	bool developerMode;
-	float version = 0.3;
 	int schoolBudget; // Currency
 	int schoolBudgetAdd; // Currency to add every month where month != 1
 	double reputation = 1.0; // Hidden reputation, can use sB to check
@@ -28,7 +29,7 @@ int main()
 
 	schoolBudget = rand() % 100000 + 50000;
 
-	cout << "Welcome to School Budget Simulator 2015. Version " << version << "\n";
+	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << "\n";
 	cout << "What's your name? ";
 	cin >> name;
 	cout << "Hello, " << name <<".\n\n"; // Easter egg
