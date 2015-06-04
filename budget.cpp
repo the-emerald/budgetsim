@@ -10,6 +10,28 @@
 #include <limits>
 using namespace std;
 
+string promptUsername()
+{
+	string name;
+
+	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << "\n";
+	cout << "What's your name? ";
+	cin >> name;
+	cout << "Hello, " << name <<".\n\n"; // Easter egg
+	if(name=="Kenny") {
+		cout << "ey b0ss\n";
+	}
+	if(name=="boss") {
+		cout << "can i habe a pizza pls?";
+	}
+	//cout << "It is new year. You have new amount of money!\n";
+	//cout << "You have: " << schoolBudget << " HKD. How lucky.\n";
+
+	cout << "...\n";
+
+	return name;
+}
+
 int main()
 {
 	bool fail;
@@ -29,21 +51,7 @@ int main()
 
 	schoolBudget = rand() % 100000 + 50000;
 
-	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << "\n";
-	cout << "What's your name? ";
-	cin >> name;
-	cout << "Hello, " << name <<".\n\n"; // Easter egg
-	if(name=="Kenny") {
-		cout << "ey b0ss\n";
-	}
-	if(name=="boss") {
-		cout << "can i habe a pizza pls?";
-	}
-	//cout << "It is new year. You have new amount of money!\n";
-	//cout << "You have: " << schoolBudget << " HKD. How lucky.\n";
-
-	cout << "...\n";
-
+	name = promptUsername();
 
 	for(month = 1; month <= 12; month++) {
 
