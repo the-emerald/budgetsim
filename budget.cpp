@@ -174,7 +174,7 @@ int main()
 				reputation += 0.15;
 			}
 		},
-		
+
 		{
 			"New building block ($100,000). Money in exchange for population and reputation boost.",
 			"You build a new building - hopefully not with tofu.",
@@ -185,7 +185,7 @@ int main()
 				reputation += 0.3;
 			}
 		},
-		
+
 		{
 			"Hire a teacher of unknown quality for an unknown cost.";
 			"You hired a teacher - but it'll be some time before you know how well he performs.";
@@ -209,7 +209,7 @@ int main()
 					teacherQualityDescription="bugged";
 				}
 				cout << "This teacher is..." << teacherQualityDescription << " .";
-				
+
 			}
 		},
 	};
@@ -236,7 +236,7 @@ int main()
 		for (auto &choice : actionChoices) {
 			cout << i++ << ". " << choice.title << "\n";
 		}
-		
+
 		int teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
 		if(teacherQuality==3) {
 			teacherQualityDescription = "good";
@@ -254,7 +254,7 @@ int main()
 			teacherQualityDescription = "BUGGED";
 			//teacherCost = 10000;
 		}
-		
+
 		cout << "What would you like to do this month? ";
 
 		while( ! ( cin >> selectedChoiceNumber ) ) {
