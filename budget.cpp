@@ -208,7 +208,7 @@ int main()
 					teacherQualityDescription = "bugged";
 				}
 
-				cout << "This teacher is..." << teacherQualityDescription << " .";
+				cout << "This teacher is... " << teacherQualityDescription << ".\n";
 
 				schoolBudget -= teacherCost;
 			}
