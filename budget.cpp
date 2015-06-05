@@ -42,11 +42,11 @@ string promptUsername()
 	return name;
 }
 
-void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop, int teacherCost)
+void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 {
 	cout << "Last month has brought you some extra budget.\n";
 	int rng = rand() % 20 + 30; //redo rng
-	int schoolBudgetAdd = (reputation*schoolPop*rng) - teacherCost;
+	int schoolBudgetAdd = (reputation*schoolPop*rng);
 	cout << schoolBudgetAdd << " has been added to your account.\n";
 	schoolBudget += schoolBudgetAdd;
 }
@@ -60,8 +60,6 @@ int main()
 	int schoolPop = 100; // Always known, school population
 	int month = 0; // Month
 	int selectedChoiceNumber;
-	int teacherQuality, teacherCost, teacherMark; //teacherMake is depreciated.
-	string teacherQualityDescription;
 	string name;
 	double score;
 	vector<ActionChoice> actionChoices;
@@ -190,24 +188,29 @@ int main()
 			"Hire a teacher of unknown quality for an unknown cost.",
 			"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
-				int teacherQuality = rand() % 1 + 3;
+				int teacherQuality, teacherCost;
+				string teacherQualityDescription;
+
+				teacherQuality = rand() % 1 + 3;
 				if(teacherQuality==3) {
 					teacherQualityDescription = "loved";
 					teacherCost = 15000;
 				}
-				if(teacherQuality==2) {
+				else if(teacherQuality==2) {
 					teacherQualityDescription = "neutral";
 					teacherCost = 10000;
 				}
-				if(teacherQuality==1) {
-					teacherQualityDescription="hated";
+				else if(teacherQuality==1)  {
+					teacherQualityDescription = "hated";
 					teacherCost = 5000;
 				}
 				else {
-					teacherQualityDescription="bugged";
+					teacherQualityDescription = "bugged";
 				}
+
 				cout << "This teacher is..." << teacherQualityDescription << " .";
 
+				schoolBudget -= teacherCost;
 			}
 		},
 	};
@@ -217,7 +220,7 @@ int main()
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
 		if(month!=1) {	//schoolBudgetAdd
-			addRandomAmountToBudget(schoolBudget, reputation, schoolPop, teacherCost);
+			addRandomAmountToBudget(schoolBudget, reputation, schoolPop);
 		}
 		if(reputation<=0) {
 			cout << "The school is very disappointed with you. You have been dismissed.";
@@ -234,24 +237,6 @@ int main()
 		for (auto &choice : actionChoices) {
 			cout << i++ << ". " << choice.title << "\n";
 		}
-
-		/* int teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
-		if(teacherQuality==3) {
-			teacherQualityDescription = "good";
-			//teacherCost = 15000;
-		}
-		if(teacherQuality==2) {
-			teacherQualityDescription = "mediocre";
-			//teacherCost = 10000;
-		}
-		if(teacherQuality==1)  {
-			teacherQualityDescription = "bad";
-			//teacherCost = 5000;
-		}
-		else {
-			teacherQualityDescription = "BUGGED";
-			//teacherCost = 10000;
-		} */
 
 		cout << "What would you like to do this month? ";
 
