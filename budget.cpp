@@ -188,44 +188,26 @@ int main()
 			"Hire a teacher of unknown quality for an unknown cost.",
 			"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
-				int teacherQuality, teacherCost, teacherMark; //teacherMake is depreciated.
+				int teacherQuality, teacherCost;
 				string teacherQualityDescription;
+
 				teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
 				if(teacherQuality==3) {
-					teacherQualityDescription = "good";
-					//teacherCost = 15000;
+					teacherQualityDescription = "loved";
+					teacherCost = 15000;
 				}
 				else if(teacherQuality==2) {
-					teacherQualityDescription = "mediocre";
-					//teacherCost = 10000;
+					teacherQualityDescription = "neutral";
+					teacherCost = 10000;
 				}
 				else if(teacherQuality==1)  {
-					teacherQualityDescription = "bad";
-					//teacherCost = 5000;
+					teacherQualityDescription = "hated";
+					teacherCost = 5000;
 				}
 				else {
-					teacherQualityDescription = "BUGGED";
-					//teacherCost = 10000;
+					teacherQualityDescription = "bugged";
 				}
 
-				if(teacherQualityDescription=="good") {
-					teacherQualityDescription="loved";
-					teacherCost = 15000;
-					//teacherMark = 1;
-				}
-				else if(teacherQualityDescription=="mediocre") {
-					teacherQualityDescription="neutral";
-					teacherCost = 10000;
-					//teacherMark = 2;
-				}
-				else if(teacherQualityDescription=="bad") {
-					teacherQualityDescription="hated";
-					teacherCost = 5000;
-					//teacherMark = 3;
-				}
-				else {
-					teacherQualityDescription="bugged";
-				}
 				cout << "This teacher is..." << teacherQualityDescription << " .";
 
 				schoolBudget -= teacherCost;
