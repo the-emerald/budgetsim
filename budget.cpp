@@ -187,8 +187,8 @@ int main()
 		},
 
 		{
-			"Hire a teacher of unknown quality for an unknown cost.";
-			"You hired a teacher - but it'll be some time before you know how well he performs.";
+			"Hire a teacher of unknown quality for an unknown cost.",
+			"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
 				if(teacherQualityDescription=="good") {
 					teacherQualityDescription="loved";
