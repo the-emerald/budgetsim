@@ -190,20 +190,18 @@ int main()
 			"Hire a teacher of unknown quality for an unknown cost.",
 			"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
-				if(teacherQualityDescription=="good") {
-					teacherQualityDescription="loved";
+				int teacherQuality = rand() % 1 + 3;
+				if(teacherQuality==3) {
+					teacherQualityDescription = "loved";
 					teacherCost = 15000;
-					//teacherMark = 1;
 				}
-				if(teacherQualityDescription=="mediocre") {
-					teacherQualityDescription="neutral";
+				if(teacherQuality==2) {
+					teacherQualityDescription = "neutral";
 					teacherCost = 10000;
-					//teacherMark = 2;
 				}
-				if(teacherQualityDescription=="bad") {
+				if(teacherQuality==1) {
 					teacherQualityDescription="hated";
 					teacherCost = 5000;
-					//teacherMark = 3;
 				}
 				else {
 					teacherQualityDescription="bugged";
@@ -237,7 +235,7 @@ int main()
 			cout << i++ << ". " << choice.title << "\n";
 		}
 
-		int teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
+		/* int teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
 		if(teacherQuality==3) {
 			teacherQualityDescription = "good";
 			//teacherCost = 15000;
@@ -253,7 +251,7 @@ int main()
 		else {
 			teacherQualityDescription = "BUGGED";
 			//teacherCost = 10000;
-		}
+		} */
 
 		cout << "What would you like to do this month? ";
 
