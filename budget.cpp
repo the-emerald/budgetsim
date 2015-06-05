@@ -1,7 +1,7 @@
 // School budget
 // By suclearnub
 
-#define GAME_VERSION "0.4.1"
+#define GAME_VERSION "0.5"
 
 #include <iostream>
 #include <cstdlib>
@@ -46,7 +46,7 @@ void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 {
 	cout << "Last month has brought you some extra budget.\n";
 	int rng = rand() % 20 + 30; //redo rng
-	int schoolBudgetAdd = reputation*schoolPop*rng;
+	int schoolBudgetAdd = (reputation*schoolPop*rng);
 	cout << schoolBudgetAdd << " has been added to your account.\n";
 	schoolBudget += schoolBudgetAdd;
 }
@@ -172,7 +172,7 @@ int main()
 				reputation += 0.15;
 			}
 		},
-		
+
 		{
 			"New building block ($100,000). Money in exchange for population and reputation boost.",
 			"You build a new building - hopefully not with tofu.",
@@ -183,9 +183,39 @@ int main()
 				reputation += 0.3;
 			}
 		},
+
+		{
+			"Hire a teacher of unknown quality for an unknown cost.",
+			"You hired a teacher - but it'll be some time before you know how well he performs.",
+			[&]() {
+				int teacherQuality, teacherCost;
+				string teacherQualityDescription;
+
+				teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
+				if(teacherQuality==3) {
+					teacherQualityDescription = "loved";
+					teacherCost = 15000;
+				}
+				else if(teacherQuality==2) {
+					teacherQualityDescription = "neutral";
+					teacherCost = 10000;
+				}
+				else if(teacherQuality==1)  {
+					teacherQualityDescription = "hated";
+					teacherCost = 5000;
+				}
+				else {
+					teacherQualityDescription = "bugged";
+				}
+
+				cout << "This teacher is..." << teacherQualityDescription << " .";
+
+				schoolBudget -= teacherCost;
+			}
+		},
 	};
 
-	for(month = 1; month <= 12; month++) {
+	for(month = 1; month <= 12; month++) {	// <- Loops through 12 months
 
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
