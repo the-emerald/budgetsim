@@ -67,11 +67,11 @@ int main()
 	
 	// Teacher improvement
 	char teachers[10][15] = {
-		"Carlos", "5"
-		"Benjamin", "4"
-		"Lenny", "8"
-		"Jenny", "3"
-		"Herlit", "2"
+		"Carlos", "5",
+		"Benjamin", "4",
+		"Lenny", "8",
+		"Jenny", "3",
+		"Herlit", "2",
 	}
 
 	srand(time(0)*time(0)*time(0)*time(0)); //init rand
