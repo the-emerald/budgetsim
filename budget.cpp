@@ -42,7 +42,7 @@ string promptUsername()
 	return name;
 }
 
-void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
+void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop, int teacherCost)
 {
 	cout << "Last month has brought you some extra budget.\n";
 	int rng = rand() % 20 + 30; //redo rng
