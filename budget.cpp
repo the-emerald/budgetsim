@@ -1,7 +1,7 @@
 // School budget
 // By suclearnub
 
-#define GAME_VERSION "0.3.6"
+#define GAME_VERSION "0.4.1"
 
 #include <iostream>
 #include <cstdlib>
