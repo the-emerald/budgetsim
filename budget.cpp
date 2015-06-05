@@ -185,7 +185,7 @@ int main()
 		},
 	};
 
-	for(month = 1; month <= 12; month++) {
+	for(month = 1; month <= 12; month++) {	// <- Loops through 12 months
 
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
