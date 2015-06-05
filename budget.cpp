@@ -72,7 +72,7 @@ int main()
 
 	actionChoices = {
 		{
-			"Improve the toilets ($20000).",
+			"Improve the toilets ($20,000).",
 			"You've improved the toilets.",
 			[&]() {
 				schoolBudget -= 20000;
@@ -80,7 +80,7 @@ int main()
 			}
 		},
 		{
-			"Put flower pots for more beauty ($15000).",
+			"Put flower pots for more beauty ($15,000).",
 			"You put flower pots around the school.",
 			[&]() {
 				schoolBudget -= 15000;
@@ -106,7 +106,7 @@ int main()
 			}
 		},
 		{
-			"Food sale (+$10000). Will lower population in exchange for money boost.",
+			"Food sale (+$10,000). Will lower population in exchange for money boost.",
 			"You ask the students to make food for sale.",
 			[&]() {
 				cout << "You've lost 5 population but you gained some money!\n";
@@ -132,7 +132,7 @@ int main()
 			}
 		},
 		{
-			"Improve sound systems ($20000). Will lower reputation in exchange for population.",
+			"Improve sound systems ($20,000). Will lower reputation in exchange for population.",
 			"You install new sound systems for the school.",
 			[&]() {
 				string respects;
@@ -149,7 +149,7 @@ int main()
 			}
 		},
 		{
-			"Automagic water fountains ($10000). Make the students happier?",
+			"Automagic water fountains ($10,000). Make the students happier?",
 			"You install new automatic water fountains.",
 			[&]() {
 				cout << "However, none of them work.\n";
@@ -165,11 +165,22 @@ int main()
 			}
 		},
 		{
-			"Parasols in cafeteria ($15000). Will lower population in exchange for reputation.",
+			"Parasols in cafeteria ($15,000). Will lower population in exchange for reputation.",
 			"These new parasols look great! Everyone loves you for it. However some students have left because they are allergic to yellow umbrellas.",
 			[&]() {
 				schoolPop -= 5;
 				reputation += 0.15;
+			}
+		},
+		
+		{
+			"New building block ($100,000). Money in exchange for population and reputation boost.",
+			"You build a new building - hopefully not with tofu.",
+			[&]() {
+				cout << "Everyone loves you now! They have more rooms to  learn in. \n";
+				schoolBudget -= 100000;
+				schoolPop += 15;
+				reputation += 0.3;
 			}
 		},
 	};
