@@ -72,7 +72,7 @@ int main()
 		"Lenny", "8",
 		"Jenny", "3",
 		"Herlit", "2",
-	}
+	};
 
 	srand(time(0)*time(0)*time(0)*time(0)); //init rand
 
