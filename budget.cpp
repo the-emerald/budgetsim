@@ -193,7 +193,7 @@ int main()
 			addRandomAmountToBudget(schoolBudget, reputation, schoolPop);
 		}
 		if(reputation<=0) {
-			cout << "The school is very disappointed with you. You have been dismissed. There will be no score.";
+			cout << "The school is very disappointed with you. You have been dismissed.";
 			fail = true;
 			break;
 		}
