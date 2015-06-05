@@ -46,7 +46,7 @@ void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 {
 	cout << "Last month has brought you some extra budget.\n";
 	int rng = rand() % 20 + 30; //redo rng
-	int schoolBudgetAdd = reputation*schoolPop*rng;
+	int schoolBudgetAdd = (reputation*schoolPop*rng) - teacherCost;
 	cout << schoolBudgetAdd << " has been added to your account.\n";
 	schoolBudget += schoolBudgetAdd;
 }
@@ -60,6 +60,8 @@ int main()
 	int schoolPop = 100; // Always known, school population
 	int month = 0; // Month
 	int selectedChoiceNumber;
+	int teacherQuality, teacherCost, teacherMark; //teacherMake is depreciated.
+	string teacherQualityDescription;
 	string name;
 	double score;
 	vector<ActionChoice> actionChoices;
@@ -183,6 +185,33 @@ int main()
 				reputation += 0.3;
 			}
 		},
+		
+		{
+			"Hire a " << teacherQualityDescription << " teacher for " << teacherCost;
+			"You hired a " << teacherQualityDescription << " teacher.";
+			[&]() {
+				if(teacherQualityDescription=="good") {
+					teacherQualityDescription="loved.";
+					teacherCost = 15000;
+					//teacherMark = 1;
+				}
+				if(teacherQualityDescription=="mediocre") {
+					teacherQualityDescription="neutral.";
+					teacherCost = 10000;
+					//teacherMark = 2;
+				}
+				if(teacherQualityDescription=="bad") {
+					teacherQualityDescription="hated.";
+					teacherCost = 5000;
+					//teacherMark = 3;
+				}
+				else {
+					teacherQualityDescription="bugged";
+				}
+				cout << "This teacher is..." << teacherQualityDescription << " .";
+				
+			}
+		},
 	};
 
 	for(month = 1; month <= 12; month++) {	// <- Loops through 12 months
@@ -207,7 +236,25 @@ int main()
 		for (auto &choice : actionChoices) {
 			cout << i++ << ". " << choice.title << "\n";
 		}
-
+		
+		int teacherQuality = rand() % 1 + 3; //Again, RNG bugged? goddamnit.
+		if(teacherQuality==3) {
+			teacherQualityDescription = "good";
+			//teacherCost = 15000;
+		}
+		if(teacherQuality==2) {
+			teacherQualityDescription = "mediocre";
+			//teacherCost = 10000;
+		}
+		if(teacherQuality==1)  {
+			teacherQualityDescription = "bad";
+			//teacherCost = 5000;
+		}
+		else {
+			teacherQualityDescription = "BUGGED";
+			//teacherCost = 10000;
+		}
+		
 		cout << "What would you like to do this month? ";
 
 		while( ! ( cin >> selectedChoiceNumber ) ) {
