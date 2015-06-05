@@ -195,11 +195,11 @@ int main()
 					teacherQualityDescription = "good";
 					//teacherCost = 15000;
 				}
-				if(teacherQuality==2) {
+				else if(teacherQuality==2) {
 					teacherQualityDescription = "mediocre";
 					//teacherCost = 10000;
 				}
-				if(teacherQuality==1)  {
+				else if(teacherQuality==1)  {
 					teacherQualityDescription = "bad";
 					//teacherCost = 5000;
 				}
@@ -213,12 +213,12 @@ int main()
 					teacherCost = 15000;
 					//teacherMark = 1;
 				}
-				if(teacherQualityDescription=="mediocre") {
+				else if(teacherQualityDescription=="mediocre") {
 					teacherQualityDescription="neutral";
 					teacherCost = 10000;
 					//teacherMark = 2;
 				}
-				if(teacherQualityDescription=="bad") {
+				else if(teacherQualityDescription=="bad") {
 					teacherQualityDescription="hated";
 					teacherCost = 5000;
 					//teacherMark = 3;
