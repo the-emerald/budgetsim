@@ -1,7 +1,7 @@
 // School budget
 // By suclearnub
 
-#define GAME_VERSION "0.4.1T"
+#define GAME_VERSION "0.5"
 
 #include <iostream>
 #include <cstdlib>
@@ -219,7 +219,7 @@ int main()
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
 		if(month!=1) {	//schoolBudgetAdd
-			addRandomAmountToBudget(schoolBudget, reputation, schoolPop);
+			addRandomAmountToBudget(schoolBudget, reputation, schoolPop, teacherCost);
 		}
 		if(reputation<=0) {
 			cout << "The school is very disappointed with you. You have been dismissed.";
