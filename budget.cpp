@@ -191,17 +191,17 @@ int main()
 			"You hired a " << teacherQualityDescription << " teacher.";
 			[&]() {
 				if(teacherQualityDescription=="good") {
-					teacherQualityDescription="loved.";
+					teacherQualityDescription="loved";
 					teacherCost = 15000;
 					//teacherMark = 1;
 				}
 				if(teacherQualityDescription=="mediocre") {
-					teacherQualityDescription="neutral.";
+					teacherQualityDescription="neutral";
 					teacherCost = 10000;
 					//teacherMark = 2;
 				}
 				if(teacherQualityDescription=="bad") {
-					teacherQualityDescription="hated.";
+					teacherQualityDescription="hated";
 					teacherCost = 5000;
 					//teacherMark = 3;
 				}
