@@ -1,7 +1,7 @@
 // School budget
 // By suclearnub
 
-#define GAME_VERSION "0.6"
+#define GAME_VERSION "0.6.1"
 
 #include <iostream>
 #include <cstdlib>
@@ -218,9 +218,20 @@ int main()
 					teacherQualityDescription = "bugged";
 				}
 
-				cout << "This teacher is... " << teacherQualityDescription << ".\n";
+				cout << "This teacher is... " << teacherQualityDescription << " It costed you " << teacherCost << " to hire the teacher.";
 
 				schoolBudget -= teacherCost;
+			}
+		},
+		
+		{
+			"Open up some extra scholarship spots ($30000). Population in exchange for huge amounts of reputation and a bit of money.",
+			"You open up some spots for those who are really good at stuff like science and sports.",
+			[&]() {
+				schoolBudget -= 30000;
+				schoolPop += 30;
+				reputation -= 0.6;
+				cout << "You have lost 0.6 reputation because many people claim that the money could've been spent in a better way that fund a student that isn't poor.";
 			}
 		},
 	};
