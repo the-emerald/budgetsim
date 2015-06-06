@@ -63,6 +63,7 @@ int main()
 	int selectedChoiceNumber;
 	string name;
 	double score;
+	int teacherRandom;
 	vector<ActionChoice> actionChoices;
 	
 	// Teacher improvement
@@ -70,8 +71,8 @@ int main()
 		"Carlos", "5",
 		"Benjamin", "4",
 		"Lenny", "8",
-		"Jenny", "3",
-		"Herlit", "2",
+		"Jenny", "-3",
+		"Herlit", "-2",
 	};
 
 	srand(time(0)*time(0)*time(0)*time(0)); //init rand
@@ -195,9 +196,35 @@ int main()
 		},
 
 		{
-			"Hire a teacher of unknown quality for an unknown cost.",
-			"You hired a teacher - but it'll be some time before you know how well he performs.",
+			"Hire a teacher. Administration has given you a list already.",
+			"You take a look...",
+			//"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
+				int teacherChoice;
+				cout << "The teachers are...\n";
+				cout << "1. Carlos\n";
+				cout << "2. Benjamin\n";
+				cout << "3. Lenny\n";
+				cout << "4. Jenny\n";
+				cout << "5. Herlit\n";
+				cout << "...\n";
+				cout << "What's your choice? ";
+				while( ! ( cin >> teacherChoice ) ) {
+					cout << "Invalid input. Try again: ";
+					cin.clear();
+					cin.ignore( numeric_limits<int>::max(), '\n' );
+				}
+				if(teacherChoice > 5) {
+					cout << "What teacher? Administration asks. So all they did this month was sit around a desk and discuss their plans for next month.";
+				}
+				else {
+					teacherChoice--; 
+					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
+					reputation -= teacherChoice / 10;
+					schoolBudget -= teacherChoice * 5500;
+				}
+				
+				/* teacherRandom = rand() % 1 + 4; <- this part of code is the old version
 				int teacherQuality, teacherCost;
 				string teacherQualityDescription;
 
@@ -216,11 +243,11 @@ int main()
 				}
 				else {
 					teacherQualityDescription = "bugged";
-				}
+				} */
 
-				cout << "This teacher is... " << teacherQualityDescription << " It costed you " << teacherCost << " to hire the teacher.";
+				//cout << "This teacher is... " << teacherQualityDescription << " It costed you " << teacherCost << " to hire the teacher.";
 
-				schoolBudget -= teacherCost;
+				//schoolBudget -= teacherCost;
 			}
 		},
 		
