@@ -223,6 +223,7 @@ int main()
 					reputation -= teacherChoice / 10;
 					schoolBudget -= teacherChoice * 5500;
 				}
+				// char to int here goddamnit
 				
 				/* teacherRandom = rand() % 1 + 4; <- this part of code is the old version
 				int teacherQuality, teacherCost;
