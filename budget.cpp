@@ -1,8 +1,5 @@
 // School budget
 // By suclearnub
-
-#define GAME_VERSION "0.6.4"
-
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
@@ -11,12 +8,9 @@
 #include <limits>
 #include <functional>
 #include <vector>
+
 using namespace std;
 
-// http://www.codeguru.com/cpp/cpp/cpp_mfc/stl/article.php/c4027/C-Tutorial-A-Beginners-Guide-to-stdvector-Part-1.htm
-// http://stackoverflow.com/questions/6601930/c11-lambda-as-member-variable
-// http://stackoverflow.com/questions/8906545/how-to-initialize-a-vector-in-c
-// http://stackoverflow.com/questions/11516657/c-structure-initialization
 struct ActionChoice {
 	string title;
 	string resultMessage;
@@ -27,14 +21,14 @@ string promptUsername()
 {
 	string name;
 
-	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << "\n";
+	cout << "Welcome to School Budget Simulator 2015. Version 0.6.4\n";
 	cout << "What's your name? ";
 	cin >> name;
-	cout << "Hello, " << name <<".\n\n"; // Easter egg
-	if(name=="Kenny") {
+	cout << "Hello, " << name <<".\n\n";
+
+	if (name == "Kenny") {
 		cout << "ey b0ss\n";
-	}
-	if(name=="boss") {
+	} else if (name == "boss") {
 		cout << "can i habe a pizza pls?";
 	}
 
@@ -46,10 +40,12 @@ string promptUsername()
 void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 {
 	cout << "Last month has brought you some extra budget.\n";
+
 	int rng = rand() % 20 + 30; //redo rng
 	int schoolBudgetAdd = (reputation*schoolPop*rng);
-	cout << schoolBudgetAdd << " has been added to your account.\n";
 	schoolBudget += schoolBudgetAdd;
+
+	cout << schoolBudgetAdd << " has been added to your account.\n";
 }
 
 int main()
@@ -199,7 +195,6 @@ int main()
 		{
 			"Hire a teacher. Administration has given you a list already.",
 			"You take a look...",
-			//"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
 				int teacherChoice;
 				cout << "The teachers are...\n";
@@ -228,32 +223,6 @@ int main()
 					reputation += teacherA/10;
 					schoolBudget -= teacherA*1000;
 				}
-				// char to int here goddamnit
-				
-				/* teacherRandom = rand() % 1 + 4; <- this part of code is the old version
-				int teacherQuality, teacherCost;
-				string teacherQualityDescription;
-
-				teacherQuality = rand() % 1 + 3;
-				if(teacherQuality==3) {
-					teacherQualityDescription = "loved";
-					teacherCost = 15000;
-				}
-				else if(teacherQuality==2) {
-					teacherQualityDescription = "neutral";
-					teacherCost = 10000;
-				}
-				else if(teacherQuality==1)  {
-					teacherQualityDescription = "hated";
-					teacherCost = 5000;
-				}
-				else {
-					teacherQualityDescription = "bugged";
-				} */
-
-				//cout << "This teacher is... " << teacherQualityDescription << " It costed you " << teacherCost << " to hire the teacher.";
-
-				//schoolBudget -= teacherCost;
 			}
 		},
 		
@@ -269,24 +238,25 @@ int main()
 		},
 	};
 
-	for(month = 1; month <= 12; month++) {	// <- Loops through 12 months
-
+	for (month = 1; month <= 12; month++) {
 		cout << "-----------------------\n";
 		cout << "Month " << month << "\n";
-		if(month!=1) {	//schoolBudgetAdd
+
+		if (month != 1) {
 			addRandomAmountToBudget(schoolBudget, reputation, schoolPop);
 		}
-		if(reputation<=0) {
+
+		if (reputation <= 0) {
 			cout << "The school is very disappointed with you. You have been dismissed.";
 			fail = true;
 			break;
 		}
+
 		cout << "Welcome. What would you like to work on? \n";
 		cout << "\n";
 		cout << "Right now you have: " << schoolBudget << " dollars.\n";
 		cout << "...\n";
 
-		// http://stackoverflow.com/questions/12702561/c-iterate-through-vector-using-for-loop
 		int i = 1;
 		for (auto &choice : actionChoices) {
 			cout << i++ << ". " << choice.title << "\n";
@@ -294,7 +264,7 @@ int main()
 
 		cout << "What would you like to do this month? ";
 
-		while( ! ( cin >> selectedChoiceNumber ) ) {
+		while (!(cin >> selectedChoiceNumber)) {
 			cout << "Invalid input. Try again: ";
 			cin.clear();
 			cin.ignore( numeric_limits<int>::max(), '\n' );
@@ -314,19 +284,19 @@ int main()
 
 	}
 
-	if(fail==true) {
+	if (fail) {
 		score = sqrt(schoolBudget)*0.4;
-	}
-	else {
+	} else {
 		score = sqrt(schoolBudget);
 	}
+
 	cout << "\n----------\n";
 	cout << "It's the end of your term. Your score is...\n";
-	if(schoolBudget>=0) {
+	
+	if (schoolBudget >= 0) {
 		cout << score;
-	}
-	else {
-		cout <<" so bad, it's negative. Ask yourself, did you even try?";	//gg no re
+	} else {
+		cout <<" so bad, it's negative. Ask yourself, did you even try?";
 	}
 
 	cout << "\nExit the game by entering anything. > ";
