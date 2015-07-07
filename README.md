@@ -11,6 +11,11 @@ To compile the program, do the following:
     make
     
 
+To run the program, type:
+    
+    ./bin/budget
+    
+
 All characters and locations appearing in this work are fictitious. Any resemblance to real persons, living or dead, or locations, are purely coincidental.
 
 

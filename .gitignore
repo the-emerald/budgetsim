@@ -1,8 +1,2 @@
 # Ignore the executable files
-*
-!Makefile
-!.gitattributes
-!.gitignore
-!README.md
-!budget.cpp
-!metadata.h
+bin/*
