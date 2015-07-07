@@ -219,10 +219,12 @@ int main()
 					cout << "What teacher? Administration asks. So all they did this month was sit around a desk and discuss their plans for next month.";
 				}
 				else {
-					teacherChoice--; //I'm the #0 programmer in the world
+					//teacherChoice--; //I'm the #0 programmer in the world
+					teacherChoice = (teacherChoice*2)-1;
 					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
 					string teacherOutput = teachers[teacherChoice];
-					teacherA = atoi(teacher[teacherChoice].c_str());
+					teacherA = atoi(teacherOutput.c_str());
+					
 					reputation += teacherA/10;
 					schoolBudget -= teacherA*1000;
 				}
