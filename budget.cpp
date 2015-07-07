@@ -53,11 +53,11 @@ void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 int main()
 {
 	bool fail;
-	int schoolBudget; // Currency
-	int schoolBudgetAdd; // Currency to add every month where month != 1
-	double reputation = 1.0; // Hidden reputation, can use sB to check
-	int schoolPop = 100; // Always known, school population
-	int month = 0; // Month
+	int schoolBudget;
+	int schoolBudgetAdd;
+	double reputation = 1.0;
+	int schoolPop = 100;
+	int month = 0;
 	int selectedChoiceNumber;
 	int teacherA;
 	string name;
@@ -65,7 +65,6 @@ int main()
 	int teacherRandom;
 	vector<ActionChoice> actionChoices;
 	
-	// Teacher improvement
 	char teachers[10][15] = {
 		"Carlos", "5",
 		"Benjamin", "4",
@@ -74,7 +73,7 @@ int main()
 		"Herlit", "-2",
 	};
 
-	srand(time(0)*time(0)*time(0)*time(0)); //init rand
+	srand(time(0)*time(0)*time(0)*time(0));
 
 	schoolBudget = rand() % 100000 + 50000;
 
@@ -216,7 +215,6 @@ int main()
 					cout << "What teacher? Administration asks. So all they did this month was sit around a desk and discuss their plans for next month.";
 				}
 				else {
-					//teacherChoice--; //I'm the #0 programmer in the world
 					teacherChoice = (teacherChoice*2)-1;
 					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
 					string teacherOutput = teachers[teacherChoice];
