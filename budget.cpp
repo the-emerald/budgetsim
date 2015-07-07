@@ -1,11 +1,12 @@
 // School budget
 // By suclearnub
 
-#define GAME_VERSION "0.5.2"
+#define GAME_VERSION "0.6.4"
 
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+#include <cstdio>
 #include <ctime>
 #include <limits>
 #include <functional>
@@ -60,9 +61,20 @@ int main()
 	int schoolPop = 100; // Always known, school population
 	int month = 0; // Month
 	int selectedChoiceNumber;
+	int teacherA;
 	string name;
 	double score;
+	int teacherRandom;
 	vector<ActionChoice> actionChoices;
+	
+	// Teacher improvement
+	char teachers[10][15] = {
+		"Carlos", "5",
+		"Benjamin", "4",
+		"Lenny", "8",
+		"Jenny", "-3",
+		"Herlit", "-2",
+	};
 
 	srand(time(0)*time(0)*time(0)*time(0)); //init rand
 
@@ -185,9 +197,38 @@ int main()
 		},
 
 		{
-			"Hire a teacher of unknown quality for an unknown cost.",
-			"You hired a teacher - but it'll be some time before you know how well he performs.",
+			"Hire a teacher. Administration has given you a list already.",
+			"You take a look...",
+			//"You hired a teacher - but it'll be some time before you know how well he performs.",
 			[&]() {
+				int teacherChoice;
+				cout << "The teachers are...\n";
+				cout << "1. Carlos\n";
+				cout << "2. Benjamin\n";
+				cout << "3. Lenny\n";
+				cout << "4. Jenny\n";
+				cout << "5. Herlit\n";
+				cout << "...\n";
+				cout << "What's your choice? ";
+				while( ! ( cin >> teacherChoice ) ) {
+					cout << "Invalid input. Try again: ";
+					cin.clear();
+					cin.ignore( numeric_limits<int>::max(), '\n' );
+				}
+				if(teacherChoice > 5) {
+					cout << "What teacher? Administration asks. So all they did this month was sit around a desk and discuss their plans for next month.";
+				}
+				else {
+					teacherChoice--; //I'm the #0 programmer in the world
+					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
+					string teacherOutput = teachers[teacherChoice];
+					teacherA = atoi(teacher[teacherChoice].c_str());
+					reputation += teacherA/10;
+					schoolBudget -= teacherA*1000;
+				}
+				// char to int here goddamnit
+				
+				/* teacherRandom = rand() % 1 + 4; <- this part of code is the old version
 				int teacherQuality, teacherCost;
 				string teacherQualityDescription;
 
@@ -206,11 +247,22 @@ int main()
 				}
 				else {
 					teacherQualityDescription = "bugged";
-				}
+				} */
 
-				cout << "This teacher is... " << teacherQualityDescription << ".\n";
+				//cout << "This teacher is... " << teacherQualityDescription << " It costed you " << teacherCost << " to hire the teacher.";
 
-				schoolBudget -= teacherCost;
+				//schoolBudget -= teacherCost;
+			}
+		},
+		
+		{
+			"Open up some extra scholarship spots ($30000). Population in exchange for huge amounts of reputation and a bit of money.",
+			"You open up some spots for those who are really good at stuff like science and sports.",
+			[&]() {
+				schoolBudget -= 30000;
+				schoolPop += 30;
+				reputation -= 0.6;
+				cout << "You have lost 0.6 reputation because many people claim that the money could've been spent in a better way that fund a student that isn't poor.";
 			}
 		},
 	};
