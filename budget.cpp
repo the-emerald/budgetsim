@@ -1,5 +1,4 @@
 // School budget
-// By suclearnub
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
