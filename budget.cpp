@@ -1,7 +1,7 @@
 // School budget
 // By suclearnub
 
-#define GAME_VERSION "0.6.1"
+#define GAME_VERSION "0.6.4"
 
 #include <iostream>
 #include <cstdlib>
@@ -61,6 +61,7 @@ int main()
 	int schoolPop = 100; // Always known, school population
 	int month = 0; // Month
 	int selectedChoiceNumber;
+	int teacherA;
 	string name;
 	double score;
 	int teacherRandom;
@@ -218,10 +219,12 @@ int main()
 					cout << "What teacher? Administration asks. So all they did this month was sit around a desk and discuss their plans for next month.";
 				}
 				else {
-					teacherChoice--; 
+					teacherChoice--; //I'm the #0 programmer in the world
 					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
-					reputation -= teacherChoice / 10;
-					schoolBudget -= teacherChoice * 5500;
+					string teacherOutput = teachers[teacherChoice];
+					teacherA = atoi(teacher[teacherChoice].c_str());
+					reputation += teacherA/10;
+					schoolBudget -= teacherA*1000;
 				}
 				// char to int here goddamnit
 				
