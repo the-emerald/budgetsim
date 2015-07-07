@@ -9,6 +9,8 @@
 #include <functional>
 #include <vector>
 
+#include "metadata.h"
+
 using namespace std;
 
 struct ActionChoice {
@@ -21,7 +23,7 @@ string promptUsername()
 {
 	string name;
 
-	cout << "Welcome to School Budget Simulator 2015. Version 0.6.4\n";
+	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << ".\n";
 	cout << "What's your name? ";
 	cin >> name;
 	cout << "Hello, " << name <<".\n\n";

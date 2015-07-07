@@ -5,3 +5,4 @@
 !.gitignore
 !README.md
 !budget.cpp
+!metadata.h
