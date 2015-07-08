@@ -13,6 +13,7 @@ All characters and locations appearing in this work are fictitious. Any resembla
 
 - Install [Biicode](https://www.biicode.com/downloads)
 - Install C++ tools: `$ bii setup:cpp`.
+- Fetch dependencies: `$ bii init -L && bii find`
 
 Refer to [Biicode guide](http://docs.biicode.com/c++/installation.html) in case of any problem.
 If that doesn't help, search on StackOverflow or submit an issue on GitHub.
