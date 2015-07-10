@@ -14,14 +14,19 @@ class MockedPlayer : public Player {
 		}
 };
 
-TEST_CASE( "doNameDialog" ) {
+TEST_CASE( "Player::doNameDialog" ) {
+
 	MockedPlayer *player = new MockedPlayer();
 
 	SECTION( "sets player name" ) {
+
 		player->setName("foobar");
 		player->doNameDialog();
+
 		REQUIRE( player->name == "foobar" );
+
 	}
 
 	delete player;
+
 }
