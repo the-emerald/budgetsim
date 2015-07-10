@@ -47,6 +47,17 @@ TEST_CASE( "Player::doNameDialog" ) {
 
 	}
 
+	SECTION( "Easter egg: output \"ey b0ss\" when name is Kenny" ) {
+
+		player->setName("Kenny");
+		player->doNameDialog();
+
+		std::string coutMessages = redirectedHiddenCoutBuffer.str();
+
+		REQUIRE( coutMessages.find( "ey b0ss" ) != std::string::npos );
+
+	}
+
 	std::cout.rdbuf(originalSystemStdout);
 
 	delete player;

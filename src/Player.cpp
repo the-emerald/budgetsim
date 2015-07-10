@@ -16,5 +16,11 @@ void Player::doNameDialog() {
 
 	name = promptName();
 
-	cout << "Hello, " << name << "!\n\n";
+	cout << "Hello, " << name << "!";
+
+	if ( name == "Kenny" ) {
+		cout << " ey b0ss";
+	}
+
+	cout << "\n\n";
 }
