@@ -11,5 +11,10 @@ string Player::promptName() {
 }
 
 void Player::doNameDialog() {
+	cout << "Welcome to School Budget Simulator 2015!\n";
+	cout << "What's your name? ";
+
 	name = promptName();
+
+	cout << "Hello, " << name << "!\n\n";
 }
