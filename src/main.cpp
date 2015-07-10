@@ -9,6 +9,7 @@
 #include <vector>
 
 #include "metadata.h"
+#include "Player.h"
 
 using namespace std;
 
@@ -17,26 +18,6 @@ struct ActionChoice {
 	string resultMessage;
 	function<void()> action;
 };
-
-string promptUsername()
-{
-	string name;
-
-	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << ".\n";
-	cout << "What's your name? ";
-	cin >> name;
-	cout << "Hello, " << name <<".\n\n";
-
-	if (name == "Kenny") {
-		cout << "ey b0ss\n";
-	} else if (name == "boss") {
-		cout << "can i habe a pizza pls?";
-	}
-
-	cout << "...\n";
-
-	return name;
-}
 
 void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 {
@@ -51,6 +32,8 @@ void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 
 int main()
 {
+	Player *player = new Player;
+
 	bool fail;
 	int schoolBudget;
 	int schoolBudgetAdd;
@@ -59,7 +42,6 @@ int main()
 	int month = 0;
 	int selectedChoiceNumber;
 	int teacherA;
-	string name;
 	double score;
 	int teacherRandom;
 	vector<ActionChoice> actionChoices;
@@ -76,7 +58,7 @@ int main()
 
 	schoolBudget = rand() % 100000 + 50000;
 
-	name = promptUsername();
+	player->doNameDialog();
 
 	actionChoices = {
 		{
