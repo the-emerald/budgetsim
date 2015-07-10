@@ -20,6 +20,8 @@ void Player::doNameDialog() {
 
 	if ( name == "Kenny" ) {
 		cout << " ey b0ss";
+	} else if ( name == "boss" ) {
+		cout << " can i habe a pizza pls?";
 	}
 
 	cout << "\n\n";
