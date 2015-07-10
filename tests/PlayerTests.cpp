@@ -6,7 +6,11 @@
 class MockedPlayer : public Player {
 	protected:
 		std::string promptName() {
-			return "foobar";
+			return name;
+		}
+	public:
+		void setName(std::string newName) {
+			name = newName;
 		}
 };
 
@@ -14,6 +18,7 @@ TEST_CASE( "doNameDialog" ) {
 	MockedPlayer *player = new MockedPlayer();
 
 	SECTION( "sets player name" ) {
+		player->setName("foobar");
 		player->doNameDialog();
 		REQUIRE( player->name == "foobar" );
 	}
