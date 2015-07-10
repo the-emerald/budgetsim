@@ -29,7 +29,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 - **Check that the tests pass**:  
 `$ bii build --target user_budgetsim_tests_main && bin/user_budgetsim_tests_main`
 - **Run the app** when you're ready:  
-`$ bii build --target user_budgetsim_src_budget && bin/user_budgetsim_src_budget`
+`$ bii build --target user_budgetsim_src_main && bin/user_budgetsim_src_main`
 
 ### Submit a PR
 

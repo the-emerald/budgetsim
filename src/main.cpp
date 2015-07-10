@@ -63,7 +63,7 @@ int main()
 	double score;
 	int teacherRandom;
 	vector<ActionChoice> actionChoices;
-	
+
 	char teachers[10][15] = {
 		"Carlos", "5",
 		"Benjamin", "4",
@@ -218,13 +218,13 @@ int main()
 					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
 					string teacherOutput = teachers[teacherChoice];
 					teacherA = atoi(teacherOutput.c_str());
-					
+
 					reputation += teacherA/10;
 					schoolBudget -= teacherA*1000;
 				}
 			}
 		},
-		
+
 		{
 			"Open up some extra scholarship spots ($30000). Population in exchange for huge amounts of reputation and a bit of money.",
 			"You open up some spots for those who are really good at stuff like science and sports.",
@@ -291,7 +291,7 @@ int main()
 
 	cout << "\n----------\n";
 	cout << "It's the end of your term. Your score is...\n";
-	
+
 	if (schoolBudget >= 0) {
 		cout << score;
 	} else {
