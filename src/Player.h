@@ -1,7 +1,9 @@
 #include <iostream>
 
 class Player {
+	protected:
+		virtual std::string promptName();
 	public:
 		std::string name;
-		void promptName();
+		void doNameDialog();
 };

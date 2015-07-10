@@ -4,6 +4,12 @@
 
 using namespace std;
 
-void Player::promptName() {
-	name = "foobar";
+string Player::promptName() {
+	string name;
+	cin >> name;
+	return name;
+}
+
+void Player::doNameDialog() {
+	name = promptName();
 }

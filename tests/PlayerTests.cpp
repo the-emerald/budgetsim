@@ -1,14 +1,22 @@
 #include "diego/catch/catch.hpp"
-
 #include "../src/Player.h"
 
-TEST_CASE( "promptName" ) {
-	Player *p = new Player();
-	p->promptName();
+#include <iostream>
 
-	SECTION("sets the name property") {
-    	REQUIRE( p->name == "foobar" );
+class MockedPlayer : public Player {
+	protected:
+		std::string promptName() {
+			return "foobar";
+		}
+};
+
+TEST_CASE( "doNameDialog" ) {
+	MockedPlayer *player = new MockedPlayer();
+
+	SECTION( "sets player name" ) {
+		player->doNameDialog();
+		REQUIRE( player->name == "foobar" );
 	}
 
-    delete p;
+	delete player;
 }
