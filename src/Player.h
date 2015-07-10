@@ -1,3 +1,6 @@
+#ifndef __PLAYER_GUARD__
+#define __PLAYER_GUARD__
+
 #include <iostream>
 
 class Player {
@@ -7,3 +10,5 @@ class Player {
 		std::string name;
 		void doNameDialog();
 };
+
+#endif __PLAYER_GUARD__
