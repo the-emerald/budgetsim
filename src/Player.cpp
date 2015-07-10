@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "metadata.h"
 
 #include <iostream>
 
@@ -11,7 +12,8 @@ string Player::promptName() {
 }
 
 void Player::doNameDialog() {
-	cout << "Welcome to School Budget Simulator 2015!\n";
+	cout << "Welcome to School Budget Simulator 2015 v" <<
+		GAME_VERSION << "!\n";
 	cout << "What's your name? ";
 
 	name = promptName();

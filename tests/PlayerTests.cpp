@@ -1,4 +1,5 @@
 #include "diego/catch/catch.hpp"
+#include "../src/metadata.h"
 #include "../src/Player.h"
 
 #include <iostream>
@@ -42,6 +43,7 @@ TEST_CASE( "Player::doNameDialog" ) {
 		std::string coutMessages = redirectedHiddenCoutBuffer.str();
 
 		REQUIRE( coutMessages.find( "Welcome" ) != std::string::npos );
+		REQUIRE( coutMessages.find( GAME_VERSION ) != std::string::npos );
 		REQUIRE( coutMessages.find( "name" ) != std::string::npos );
 		REQUIRE( coutMessages.find( "Hello, foobar" ) != std::string::npos );
 
