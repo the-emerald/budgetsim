@@ -1,5 +1,2 @@
-# Bii local files
-/bii/
-
 # Ignore the executable files
-/bin/*
+bin/*

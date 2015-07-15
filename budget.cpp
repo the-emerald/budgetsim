@@ -9,7 +9,6 @@
 #include <vector>
 
 #include "metadata.h"
-#include "Player.h"
 
 using namespace std;
 
@@ -18,6 +17,26 @@ struct ActionChoice {
 	string resultMessage;
 	function<void()> action;
 };
+
+string promptUsername()
+{
+	string name;
+
+	cout << "Welcome to School Budget Simulator 2015. Version " << GAME_VERSION << ".\n";
+	cout << "What's your name? ";
+	cin >> name;
+	cout << "Hello, " << name <<".\n\n";
+
+	if (name == "Kenny") {
+		cout << "ey b0ss\n";
+	} else if (name == "boss") {
+		cout << "can i habe a pizza pls?";
+	}
+
+	cout << "...\n";
+
+	return name;
+}
 
 void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 {
@@ -32,8 +51,6 @@ void addRandomAmountToBudget(int &schoolBudget, int reputation, int schoolPop)
 
 int main()
 {
-	Player *player = new Player;
-
 	bool fail;
 	int schoolBudget;
 	int schoolBudgetAdd;
@@ -42,10 +59,11 @@ int main()
 	int month = 0;
 	int selectedChoiceNumber;
 	int teacherA;
+	string name;
 	double score;
 	int teacherRandom;
 	vector<ActionChoice> actionChoices;
-
+	
 	char teachers[10][15] = {
 		"Carlos", "5",
 		"Benjamin", "4",
@@ -58,7 +76,7 @@ int main()
 
 	schoolBudget = rand() % 100000 + 50000;
 
-	player->doNameDialog();
+	name = promptUsername();
 
 	actionChoices = {
 		{
@@ -200,13 +218,13 @@ int main()
 					cout << "The teacher has been interviewed and has been given a mark out of ten. The mark is " << teachers[teacherChoice] << " .";
 					string teacherOutput = teachers[teacherChoice];
 					teacherA = atoi(teacherOutput.c_str());
-
+					
 					reputation += teacherA/10;
 					schoolBudget -= teacherA*1000;
 				}
 			}
 		},
-
+		
 		{
 			"Open up some extra scholarship spots ($30000). Population in exchange for huge amounts of reputation and a bit of money.",
 			"You open up some spots for those who are really good at stuff like science and sports.",
@@ -273,7 +291,7 @@ int main()
 
 	cout << "\n----------\n";
 	cout << "It's the end of your term. Your score is...\n";
-
+	
 	if (schoolBudget >= 0) {
 		cout << score;
 	} else {
